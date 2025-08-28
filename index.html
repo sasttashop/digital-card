@@ -17,6 +17,9 @@
       box-shadow: 6px 6px 12px #c1c9d2, -6px -6px 12px #ffffff;
       transition: all 0.2s ease-in-out;
       padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .neumorphic-button:hover {
       transform: scale(1.08);
@@ -37,39 +40,38 @@
       border: 3px solid gold;
       margin: 0 auto;
     }
-    .vcard-btn {
-      margin-top: 20px;
-      background: gold;
-      color: black;
-      padding: 6px 14px;   /* Smaller button */
-      border-radius: 8px;
-      font-weight: bold;
-      display: inline-block;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-    .vcard-btn:hover {
-      background: #ffd700;
-      box-shadow: 0 0 12px gold;
-      transform: scale(1.05);
-    }
     header {
-      background: gold;
-      color: black;
-      padding: 10px;
+      background: #001F54; /* Navy Blue */
+      color: white;
+      padding: 20px;
       text-align: center;
       font-weight: bold;
-      font-size: 20px;
-      border-bottom: 3px solid #c1c9d2;
+      font-size: 22px;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      display: block;
+      height: 50px;
+      background: url('https://svgwave.in/public/svg/wave-1.svg') no-repeat center;
+      background-size: cover;
     }
     footer {
-      background: gold;
-      color: black;
-      padding: 8px;
+      background: #001F54; /* Navy Blue */
+      color: white;
+      padding: 15px;
       text-align: center;
       font-size: 14px;
       margin-top: 20px;
-      border-top: 3px solid #c1c9d2;
+      position: relative;
+    }
+    footer::before {
+      content: "";
+      display: block;
+      height: 50px;
+      background: url('https://svgwave.in/public/svg/wave-7.svg') no-repeat center;
+      background-size: cover;
+      margin-top: -50px;
     }
   </style>
 </head>
@@ -105,8 +107,12 @@
         <a href="https://sassta.shop" class="neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/6B7280/domain.png" class="w-10 h-10"></a>
       </div>
 
-      <!-- Download vCard -->
-      <a href="akhter-rasool.vcf" download class="vcard-btn">📥 Save Contact</a>
+      <!-- vCard Row -->
+      <div class="mt-6 flex justify-center">
+        <a href="akhter-rasool.vcf" download class="neumorphic-button">
+          <img src="https://img.icons8.com/ios-glyphs/48/FFD700/add-contact-to-company.png" class="w-10 h-10" alt="Save Contact">
+        </a>
+      </div>
     </div>
   </main>
 
