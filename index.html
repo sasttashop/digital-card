@@ -1,18 +1,116 @@
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open('visiting-card-cache').then(cache => {
-      return cache.addAll([
-        './index.html',
-        './manifest.json'
-      ]);
-    })
-  );
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Visiting Card - Akhter Rasool</title>
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
-});
+  <!-- Description -->
+  <meta name="description" content="Akhter Rasool | Business Owner & Freelancer - میرا ڈیجیٹل وزٹنگ کارڈ دیکھیں اور براہ راست رابطہ کریں۔">
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Akhter Rasool - Visiting Card">
+  <meta property="og:description" content="Business Owner | Freelancer - یہ میرا official visiting card ہے۔">
+  <meta property="og:image" content="https://i.postimg.cc/ZYVMYnkH/preveiw.png">
+  <meta property="og:url" content="https://sasttashop.github.io/digital-card/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Akhter Rasool - Visiting Card">
+  <meta name="twitter:description" content="Business Owner | Freelancer - یہ میرا official visiting card ہے۔">
+  <meta name="twitter:image" content="https://i.postimg.cc/ZYVMYnkH/preveiw.png">
+
+  <!-- Favicon + App Icons -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/ZYVMYnkH/preveiw.png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/ZYVMYnkH/preveiw.png">
+  <meta name="theme-color" content="#e0e5ec">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #e0e5ec;
+    }
+    .neumorphic-button {
+      background: #e0e5ec;
+      border-radius: 50%;
+      box-shadow: 6px 6px 12px #c1c9d2, -6px -6px 12px #ffffff;
+      transition: all 0.2s ease-in-out;
+    }
+    .neumorphic-button:active {
+      box-shadow: inset 4px 4px 8px #c1c9d2, inset -4px -4px 8px #ffffff;
+    }
+    .neumorphic-card {
+      background: #e0e5ec;
+      border-radius: 20px;
+      box-shadow: 10px 10px 20px #c1c9d2, -10px -10px 20px #ffffff;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <!-- Main Card -->
+  <div class="w-full max-w-sm neumorphic-card p-8 text-center">
+
+    <!-- Profile Picture -->
+    <img 
+      class="w-32 h-32 rounded-full mx-auto object-cover" 
+      src="https://i.postimg.cc/fLgqKqfF/AKHTER.jpg" 
+      alt="Profile Picture of Akhter Rasool"
+      style="box-shadow: 8px 8px 16px #c1c9d2, -8px -8px 16px #ffffff;"
+      onerror="this.onerror=null; this.src='https://placehold.co/128x128/cccccc/ffffff?text=Image+Error';"
+    >
+
+    <!-- Name -->
+    <h1 class="text-3xl font-bold text-gray-800 mt-6">Akhter Rasool</h1>
+    <p class="text-md text-gray-600 mt-1">Business owner | Freelancer</p>
+
+    <!-- Social Icons -->
+    <div class="mt-8 flex justify-center items-center space-x-5">
+      <a href="tel:+923173002910" class="p-4 neumorphic-button" aria-label="Call">
+        <img src="https://img.icons8.com/ios-glyphs/30/3B82F6/phone.png" alt="Call" class="w-8 h-8">
+      </a>
+      <a href="https://wa.me/923232631530" class="p-4 neumorphic-button" aria-label="WhatsApp">
+        <img src="https://img.icons8.com/ios-glyphs/30/25D366/whatsapp.png" alt="WhatsApp" class="w-8 h-8">
+      </a>
+      <a href="https://www.facebook.com/share/1Jhp8Xm7Hi/" target="_blank" class="p-4 neumorphic-button" aria-label="Facebook">
+        <img src="https://img.icons8.com/ios-glyphs/30/1877F2/facebook-new.png" alt="Facebook" class="w-8 h-8">
+      </a>
+      <a href="https://x.com/yourprofile" target="_blank" class="p-4 neumorphic-button" aria-label="X Profile">
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/twitterx.png" alt="X" class="w-7 h-7">
+      </a>
+    </div>
+
+    <div class="mt-5 flex justify-center items-center space-x-5">
+      <a href="https://tiktok.com/@yourprofile" target="_blank" class="p-4 neumorphic-button" aria-label="TikTok Profile">
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/tiktok.png" alt="TikTok" class="w-7 h-7">
+      </a>
+      <a href="https://maps.app.goo.gl/A45w6mRxmrUr28by8" target="_blank" class="p-4 neumorphic-button" aria-label="Location">
+        <img src="https://img.icons8.com/ios-glyphs/30/EA4335/marker.png" alt="Location" class="w-7 h-7">
+      </a>
+      <a href="https://sassta.shop" target="_blank" class="p-4 neumorphic-button" aria-label="Website">
+        <img src="https://img.icons8.com/ios-glyphs/30/6B7280/domain.png" alt="Website" class="w-7 h-7">
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
