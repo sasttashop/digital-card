@@ -16,9 +16,8 @@
       align-items: center;
       overflow: hidden;
       position: relative;
+      background: #000;
     }
-
-    /* 🔥 Animated Gradient Background */
     body::before {
       content: "";
       position: absolute;
@@ -29,15 +28,21 @@
       background: linear-gradient(45deg, #ffecd2, #fcb69f, #e0c3fc, #8ec5fc, #f093fb, #f5576c);
       background-size: 400% 400%;
       animation: gradientBG 12s ease infinite;
-      z-index: -1;
+      z-index: -2;
     }
-
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
     .neumorphic-button {
       background: #e0e5ec;
       border-radius: 50%;
@@ -50,24 +55,20 @@
       box-shadow: 0 0 15px gold, inset -4px -4px 8px #ffffff;
     }
     .neumorphic-card {
-      background: #e0e5eccc; /* semi-transparent for background visibility */
+      background: #e0e5ecc9;
       border-radius: 20px;
       border: 3px solid gold; 
       box-shadow: 10px 10px 20px #c1c9d2, -10px -10px 20px #ffffff;
-      transition: all 0.3s ease-in-out;
       backdrop-filter: blur(10px);
+      transition: all 0.3s ease-in-out;
     }
     .header {
       background: linear-gradient(to right, #00416A, #E4E5E6); 
       color: white;
       padding: 10px;
       border-radius: 20px 20px 0 0;
-      position: relative;
-      overflow: hidden;
     }
     .header h1 {
-      position: relative;
-      display: inline-block;
       background: linear-gradient(90deg, gold, white, gold);
       background-size: 200% auto;
       -webkit-background-clip: text;
@@ -99,9 +100,27 @@
       transform: rotate(5deg) scale(1.05);
       box-shadow: 0 0 20px gold;
     }
+    .vcard-btn {
+      margin-top: 20px;
+      background: gold;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+    }
+    .vcard-btn:hover {
+      background: #ffd700;
+      box-shadow: 0 0 15px gold;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
+
+  <!-- Gold Dust Particles -->
+  <canvas id="particles"></canvas>
 
   <!-- Main Card -->
   <div class="w-full max-w-sm neumorphic-card text-center overflow-hidden">
@@ -112,50 +131,31 @@
     </div>
 
     <div class="p-6">
-
       <!-- Profile Picture -->
-      <img 
-        class="profile-pic" 
-        src="https://i.postimg.cc/fLgqKqfF/AKHTER.jpg" 
-        alt="Profile Picture of Akhter Rasool"
-      >
+      <img class="profile-pic" src="https://i.postimg.cc/fLgqKqfF/AKHTER.jpg" alt="Profile Picture of Akhter Rasool">
 
       <!-- Name -->
       <h1 class="text-3xl font-bold text-gray-800 mt-6">Akhter Rasool</h1>
       <p class="text-md text-gray-600 mt-1">Business owner | Freelancer</p>
 
-      <!-- Social Icons Row 1 -->
+      <!-- Row 1 -->
       <div class="mt-8 flex justify-center items-center space-x-6">
-        <a href="tel:+923173002910" class="p-4 neumorphic-button" aria-label="Call">
-          <img src="https://img.icons8.com/ios-glyphs/48/3B82F6/phone.png" alt="Call" 
-               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-        </a>
-        <a href="https://wa.me/923232631530" class="p-4 neumorphic-button" aria-label="WhatsApp">
-          <img src="https://img.icons8.com/ios-glyphs/48/25D366/whatsapp.png" alt="WhatsApp" 
-               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-        </a>
-        <a href="https://www.facebook.com/share/1Jhp8Xm7Hi/" target="_blank" class="p-4 neumorphic-button" aria-label="Facebook">
-          <img src="https://img.icons8.com/ios-glyphs/48/1877F2/facebook-new.png" alt="Facebook" 
-               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-        </a>
-                </a>
+        <a href="tel:+923173002910" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/3B82F6/phone.png" class="w-12 h-12"></a>
+        <a href="https://wa.me/923232631530" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/25D366/whatsapp.png" class="w-12 h-12"></a>
+        <a href="https://www.facebook.com/share/1Jhp8Xm7Hi/" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/1877F2/facebook-new.png" class="w-12 h-12"></a>
+        <a href="https://x.com/yourprofile" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/000000/twitterx.png" class="w-12 h-12"></a>
       </div>
 
-      <!-- Social Icons Row 2 -->
+      <!-- Row 2 -->
       <div class="mt-6 flex justify-center items-center space-x-6">
-        <a href="https://tiktok.com/@yourprofile" target="_blank" class="p-4 neumorphic-button" aria-label="TikTok Profile">
-          <img src="https://img.icons8.com/ios-glyphs/48/000000/tiktok.png" alt="TikTok" 
-               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-        </a>
-        <a href="https://maps.app.goo.gl/A45w6mRxmrUr28by8" target="_blank" class="p-4 neumorphic-button" aria-label="Location">
-          <img src="https://img.icons8.com/ios-glyphs/48/EA4335/marker.png" alt="Location" 
-               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-        </a>
-        <a href="https://sassta.shop" target="_blank" class="p-4 neumorphic-button" aria-label="Website">
-          <img src="https://img.icons8.com/ios-glyphs/48/6B7280/domain.png" alt="Website" 
-               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-        </a>
+        <!-- Email -->
+        <a href="mailto:akhterrasool266@gmail.com" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/D14836/new-post.png" class="w-12 h-12"></a>
+        <a href="https://maps.app.goo.gl/A45w6mRxmrUr28by8" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/EA4335/marker.png" class="w-12 h-12"></a>
+        <a href="https://sassta.shop" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/6B7280/domain.png" class="w-12 h-12"></a>
       </div>
+
+      <!-- 📥 Download vCard Button -->
+      <a href="akhter-rasool.vcf" download class="vcard-btn">📥 Save Contact</a>
     </div>
 
     <!-- Footer -->
@@ -164,5 +164,54 @@
     </div>
   </div>
 
+  <!-- Gold Dust Script -->
+  <script>
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let particlesArray = [];
+    const colors = ["#FFD700", "#FFA500", "#FFFACD"];
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.speedX = Math.random() * 0.6 - 0.3;
+        this.speedY = Math.random() * 0.6 - 0.3;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+    function init() {
+      particlesArray = [];
+      for (let i = 0; i < 120; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animate);
+    }
+    init();
+    animate();
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+  </script>
 </body>
 </html>
