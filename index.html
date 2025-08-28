@@ -9,28 +9,74 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
     }
+
+    /* 🔥 Animated Gradient Background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #ffecd2, #fcb69f, #e0c3fc, #8ec5fc, #f093fb, #f5576c);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .neumorphic-button {
       background: #e0e5ec;
       border-radius: 50%;
+      border: 2px solid gold;   
       box-shadow: 6px 6px 12px #c1c9d2, -6px -6px 12px #ffffff;
-      transition: all 0.2s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
-    .neumorphic-button:active {
-      box-shadow: inset 4px 4px 8px #c1c9d2, inset -4px -4px 8px #ffffff;
+    .neumorphic-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px gold, inset -4px -4px 8px #ffffff;
     }
     .neumorphic-card {
-      background: #e0e5ec;
+      background: #e0e5eccc; /* semi-transparent for background visibility */
       border-radius: 20px;
-      border: 3px solid gold; /* Golden Border */
+      border: 3px solid gold; 
       box-shadow: 10px 10px 20px #c1c9d2, -10px -10px 20px #ffffff;
+      transition: all 0.3s ease-in-out;
+      backdrop-filter: blur(10px);
     }
     .header {
       background: linear-gradient(to right, #00416A, #E4E5E6); 
       color: white;
       padding: 10px;
       border-radius: 20px 20px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .header h1 {
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(90deg, gold, white, gold);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+    }
+    @keyframes shine {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; }
     }
     .footer {
       background: linear-gradient(to right, #E4E5E6, #00416A);
@@ -39,9 +85,23 @@
       border-radius: 0 0 20px 20px;
       font-size: 12px;
     }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 20px;       
+      border: 3px solid gold;    
+      margin: 0 auto;
+      box-shadow: 6px 6px 12px #c1c9d2, -6px -6px 12px #ffffff;
+      transition: all 0.5s ease-in-out;
+    }
+    .profile-pic:hover {
+      transform: rotate(5deg) scale(1.05);
+      box-shadow: 0 0 20px gold;
+    }
   </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
+<body>
 
   <!-- Main Card -->
   <div class="w-full max-w-sm neumorphic-card text-center overflow-hidden">
@@ -55,7 +115,7 @@
 
       <!-- Profile Picture -->
       <img 
-        class="w-32 h-32 rounded-full mx-auto object-cover" 
+        class="profile-pic" 
         src="https://i.postimg.cc/fLgqKqfF/AKHTER.jpg" 
         alt="Profile Picture of Akhter Rasool"
       >
@@ -67,40 +127,43 @@
       <!-- Social Icons Row 1 -->
       <div class="mt-8 flex justify-center items-center space-x-6">
         <a href="tel:+923173002910" class="p-4 neumorphic-button" aria-label="Call">
-          <img src="https://img.icons8.com/ios-glyphs/40/3B82F6/phone.png" alt="Call" 
-               class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+          <img src="https://img.icons8.com/ios-glyphs/48/3B82F6/phone.png" alt="Call" 
+               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
         </a>
         <a href="https://wa.me/923232631530" class="p-4 neumorphic-button" aria-label="WhatsApp">
-          <img src="https://img.icons8.com/ios-glyphs/40/25D366/whatsapp.png" alt="WhatsApp" 
-               class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+          <img src="https://img.icons8.com/ios-glyphs/48/25D366/whatsapp.png" alt="WhatsApp" 
+               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
         </a>
         <a href="https://www.facebook.com/share/1Jhp8Xm7Hi/" target="_blank" class="p-4 neumorphic-button" aria-label="Facebook">
-          <img src="https://img.icons8.com/ios-glyphs/40/1877F2/facebook-new.png" alt="Facebook" 
-               class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+          <img src="https://img.icons8.com/ios-glyphs/48/1877F2/facebook-new.png" alt="Facebook" 
+               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
         </a>
-                </a>
+        <a href="https://x.com/yourprofile" target="_blank" class="p-4 neumorphic-button" aria-label="X Profile">
+          <img src="https://img.icons8.com/ios-glyphs/48/000000/twitterx.png" alt="X" 
+               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
+        </a>
       </div>
 
       <!-- Social Icons Row 2 -->
       <div class="mt-6 flex justify-center items-center space-x-6">
         <a href="https://tiktok.com/@yourprofile" target="_blank" class="p-4 neumorphic-button" aria-label="TikTok Profile">
-          <img src="https://img.icons8.com/ios-glyphs/40/000000/tiktok.png" alt="TikTok" 
-               class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+          <img src="https://img.icons8.com/ios-glyphs/48/000000/tiktok.png" alt="TikTok" 
+               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
         </a>
         <a href="https://maps.app.goo.gl/A45w6mRxmrUr28by8" target="_blank" class="p-4 neumorphic-button" aria-label="Location">
-          <img src="https://img.icons8.com/ios-glyphs/40/EA4335/marker.png" alt="Location" 
-               class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+          <img src="https://img.icons8.com/ios-glyphs/48/EA4335/marker.png" alt="Location" 
+               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
         </a>
         <a href="https://sassta.shop" target="_blank" class="p-4 neumorphic-button" aria-label="Website">
-          <img src="https://img.icons8.com/ios-glyphs/40/6B7280/domain.png" alt="Website" 
-               class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+          <img src="https://img.icons8.com/ios-glyphs/48/6B7280/domain.png" alt="Website" 
+               class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
         </a>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-      <p>© 2025 Smart Identity | Powered by Sastta.shop</p>
+      <p>© 2025 Smart Identity | Powered by Akhter Rasool</p>
     </div>
   </div>
 
