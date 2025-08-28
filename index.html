@@ -5,6 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Identity - Digital Visiting Card</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e0e5ec;
+    }
+    .neumorphic-button {
+      background: #e0e5ec;
+      border-radius: 50%;
+      border: 2px solid gold;
+      box-shadow: 6px 6px 12px #c1c9d2, -6px -6px 12px #ffffff;
+      transition: all 0.2s ease-in-out;
+    }
+    .neumorphic-card {
+      background: #e0e5ec;
+      border-radius: 20px;
+      border: 3px solid gold;
+      box-shadow: 10px 10px 20px #c1c9d2, -10px -10px 20px #ffffff;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 3px solid gold;
+      margin: 0 auto;
+    }
+    .vcard-btn {
+      margin-top: 20px;
+      background: gold;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <div class="w-full max-w-sm neumorphic-card p-6 text-center">
+    <h1 class="text-2xl font-bold mb-4">✨ Smart Identity ✨</h1>
+
+    <!-- Profile Picture -->
+    <img class="profile-pic" src="https://i.postimg.cc/fLgqKqfF/AKHTER.jpg" alt="Profile Picture">
+
+    <!-- Name -->
+    <h1 class="text-3xl font-bold text-gray-800 mt-6">Akhter Rasool</h1>
+    <p class="text-md text-gray-600 mt-1">Business Owner | Freelancer</p>
+
+    <!-- Row 1 -->
+    <div class="mt-6 flex justify-center items-center space-x-6">
+      <a href="tel:+923173002910" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/3B82F6/phone.png" class="w-10 h-10"></a>
+      <a href="https://wa.me/923232631530" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/25D366/whatsapp.png" class="w-10 h-10"></a>
+      <a href="https://www.facebook.com/share/1Jhp8Xm7Hi/" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/1877F2/facebook-new.png" class="w-10 h-10"></a>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="mt-6 flex justify-center items-center space-x-6">
+      <a href="mailto:akhterrasool266@gmail.com" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/D14836/new-post.png" class="w-10 h-10"></a>
+      <a href="https://maps.app.goo.gl/A45w6mRxmrUr28by8" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/EA4335/marker.png" class="w-10 h-10"></a>
+      <a href="https://sassta.shop" class="p-4 neumorphic-button"><img src="https://img.icons8.com/ios-glyphs/48/6B7280/domain.png" class="w-10 h-10"></a>
+    </div>
+
+    <!-- Download vCard -->
+    <a href="akhter-rasool.vcf" download class="vcard-btn">📥 Save Contact</a>
+  </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Identity - Digital Visiting Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <div>
