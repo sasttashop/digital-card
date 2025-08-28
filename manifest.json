@@ -1,6 +1,6 @@
 {
-  "name": "Digital Visiting Card - Akhter Rasool",
-  "short_name": "Visiting Card",
+  "name": "Smart Identity - Digital Visiting Card",
+  "short_name": "SmartID",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#e0e5ec",
