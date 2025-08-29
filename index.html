@@ -12,7 +12,7 @@
     }
     .neumorphic-button {
       background: #e0e5ec;
-      border-radius: 15px; /* Square with rounded corners */
+      border-radius: 15px;
       border: 2px solid gold;
       box-shadow: 6px 6px 12px #c1c9d2, -6px -6px 12px #ffffff;
       transition: all 0.2s ease-in-out;
@@ -39,9 +39,18 @@
       border-radius: 20px;
       border: 3px solid gold;
       margin: 0 auto;
+      display: block;
+    }
+    .preview-pic {
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto 15px;
+      display: block;
+      border-radius: 15px;
+      border: 2px solid gold;
     }
     header {
-      background: #001F54; /* Navy Blue */
+      background: #001F54; 
       color: white;
       padding: 20px;
       text-align: center;
@@ -57,7 +66,7 @@
       background-size: cover;
     }
     footer {
-      background: #001F54; /* Navy Blue */
+      background: #001F54;
       color: white;
       padding: 15px;
       text-align: center;
@@ -86,9 +95,14 @@
   <main class="flex-grow flex items-center justify-center p-4">
     <div class="w-full max-w-sm neumorphic-card p-6 text-center">
 
-      <!-- Preview Image (Updated) -->
+      <!-- Preview Image -->
       <a href='https://postimages.org/' target='_blank'>
-        <img id="preview" src="https://i.postimg.cc/T15PZT5b/Whats-App-Image-2025-08-29-at-3-23-44-PM.jpg" border="0" alt="preview"/>
+        <img id="preview" class="preview-pic" src="https://i.postimg.cc/T15PZT5b/Whats-App-Image-2025-08-29-at-3-23-44-PM.jpg" alt="preview"/>
+      </a>
+
+      <!-- Profile Image -->
+      <a href='https://postimg.cc/1nwKRHTc' target='_blank'>
+        <img class="profile-pic" src="https://i.postimg.cc/fLgqKqfF/AKHTER.jpg" alt="AKHTER"/>
       </a>
 
       <!-- Name -->
